@@ -10,6 +10,8 @@ Supports auto-detecting usage of the following:
 * JavaScript
 * Ruby
 
+(PRs to add further support is welcome - take a look at [`patterns.js`](patterns.js).)
+
 Run `npx github:charleskorn/dependabot-config-generator` for sensible default options, or customise with:
 
 * `--enable-auto-merge`: enable [auto-merging PRs](https://dependabot.com/docs/config-file/#automerged_updates) if all checks succeed
