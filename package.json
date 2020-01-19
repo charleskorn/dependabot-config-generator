@@ -5,5 +5,13 @@
   "main": "index.js",
   "repository": "https://github.com/charleskorn/dependabot-config-generator",
   "author": "Charles Korn",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "arg": "^4.1.2",
+    "glob": "^7.1.6",
+    "yaml": "^1.7.2"
+  }
 }
