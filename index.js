@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const arg = require('arg');
+const fs = require('fs');
 const glob = require("glob");
 const path = require("path");
 const YAML = require('yaml');
@@ -47,4 +48,12 @@ const doc = new YAML.Document();
 doc.commentBefore = ' Generated with https://github.com/charleskorn/dependabot-config-generator';
 doc.contents = {version: 1, update_configs: configs};
 
-console.info(doc.toString());
+const directory = '.dependabot';
+
+if (!fs.existsSync(directory)){
+    fs.mkdirSync(directory);
+}
+
+const filePath = path.join(directory, 'config.yml');
+
+fs.writeFileSync(filePath, doc.toString());
