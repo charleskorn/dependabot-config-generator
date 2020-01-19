@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const arg = require('arg');
 const glob = require("glob");
 const path = require("path");
