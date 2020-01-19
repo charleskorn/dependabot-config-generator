@@ -1,0 +1,9 @@
+{
+  "name": "dependabot-config-generator",
+  "version": "1.0.0",
+  "description": "Automatically generate config files for Dependabot.",
+  "main": "index.js",
+  "repository": "https://github.com/charleskorn/dependabot-config-generator",
+  "author": "Charles Korn",
+  "license": "Apache-2.0"
+}
