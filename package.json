@@ -9,6 +9,7 @@
   "scripts": {
     "start": "node index.js"
   },
+  "bin": "./index.js",
   "dependencies": {
     "arg": "^4.1.2",
     "glob": "^7.1.6",
