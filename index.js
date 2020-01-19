@@ -17,8 +17,6 @@ const args = arg({
     [ignore]: [String]
 });
 
-const automerge = automergeConfig(args[enableAutoMerge]);
-
 if (args[ignore] !== undefined) {
     args[ignore].forEach(entry => ignores.push(entry));
 }
@@ -38,7 +36,7 @@ Object.keys(patterns).forEach(pattern => {
         const config = {
             ...patternConfig,
             directory: directory === '.' ? '/' : directory,
-            ...automerge
+            ...automergeConfig(args[enableAutoMerge]),
         };
 
         configs.push(config);
