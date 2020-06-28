@@ -14,4 +14,5 @@ Supports auto-detecting usage of the following:
 
 Run `npx github:charleskorn/dependabot-config-generator` for sensible default options, or customise with:
 
-* `--ignore=pattern`: ignore glob `pattern` when searching for files.
+* `--ignore=pattern`: ignore glob `pattern` when searching for files. Can be specified multiple times.
+* `--label=name`: add label `name` to [`labels` list](https://help.github.com/en/github/administering-a-repository/configuration-options-for-dependency-updates#labels) in generated configuration. Can be specified multiple times.

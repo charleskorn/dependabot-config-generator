@@ -10,14 +10,18 @@ const patterns = require('./patterns');
 const ignores = require('./ignores');
 
 const ignore = '--ignore';
+const labels = '--label';
 
 const args = arg({
-    [ignore]: [String]
+    [ignore]: [String],
+    [labels]: [String]
 });
 
 if (args[ignore] !== undefined) {
     args[ignore].forEach(entry => ignores.push(entry));
 }
+
+const labelsConfig = args[labels] === undefined ? {} : {labels: args[labels]};
 
 const configs = [];
 
@@ -33,6 +37,7 @@ Object.keys(patterns).forEach(pattern => {
 
         const config = {
             ...patternConfig,
+            ...labelsConfig,
             directory: directory === '.' ? '/' : directory,
             'open-pull-requests-limit': 10,
         };
@@ -47,7 +52,7 @@ doc.contents = {version: 2, updates: configs};
 
 const directory = '.github';
 
-if (!fs.existsSync(directory)){
+if (!fs.existsSync(directory)) {
     fs.mkdirSync(directory);
 }
 

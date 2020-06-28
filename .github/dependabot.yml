@@ -1,8 +1,9 @@
+# Generated with https://github.com/charleskorn/dependabot-config-generator
+
 version: 2
 updates:
-- package-ecosystem: npm
-  directory: "/"
-  schedule:
-    interval: daily
-    time: "19:00"
-  open-pull-requests-limit: 10
+  - package-ecosystem: npm
+    schedule:
+      interval: daily
+    directory: /
+    open-pull-requests-limit: 10
