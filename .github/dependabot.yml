@@ -1,4 +1,5 @@
 # Generated with https://github.com/charleskorn/dependabot-config-generator
+# Re-generate this file with: npx github:charleskorn/dependabot-config-generator
 
 version: 2
 updates:

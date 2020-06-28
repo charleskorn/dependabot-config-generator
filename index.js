@@ -47,7 +47,8 @@ Object.keys(patterns).forEach(pattern => {
 });
 
 const doc = new YAML.Document();
-doc.commentBefore = ' Generated with https://github.com/charleskorn/dependabot-config-generator';
+const arguments = process.argv.slice(2).join(' ');
+doc.commentBefore = (' Generated with https://github.com/charleskorn/dependabot-config-generator\n Re-generate this file with: npx github:charleskorn/dependabot-config-generator ' + arguments).trimEnd();
 doc.contents = {version: 2, updates: configs};
 
 const directory = '.github';
