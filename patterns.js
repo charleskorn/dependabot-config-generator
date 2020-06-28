@@ -1,29 +1,27 @@
 module.exports = {
     'package.json': {
-        package_manager: 'javascript',
-        update_schedule: 'live',
+        'package-ecosystem': 'npm',
+        schedule: { interval: 'daily' },
     },
     'Dockerfile': {
-        package_manager: 'docker',
-        update_schedule: 'daily',
+        'package-ecosystem': 'docker',
+        schedule: { interval: 'daily' },
     },
     'Gemfile': {
-        package_manager: 'ruby:bundler',
-        update_schedule: 'live',
-        allowed_updates: [
+        'package-ecosystem': 'bundler',
+        schedule: { interval: 'daily' },
+        allow: [
             {
-                match: {
-                    update_type: 'all'
-                }
+                'dependency-type': 'all',
             }
         ]
     },
     'build.gradle': {
-        package_manager: 'java:gradle',
-        update_schedule: 'daily',
+        'package-ecosystem': 'gradle',
+        schedule: { interval: 'daily' },
     },
     'go.mod': {
-        package_manager: 'go:modules',
-        update_schedule: 'daily',
+        'package-ecosystem': 'gomod',
+        schedule: { interval: 'daily' },
     },
 };

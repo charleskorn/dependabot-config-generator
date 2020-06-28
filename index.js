@@ -8,13 +8,10 @@ const YAML = require('yaml');
 
 const patterns = require('./patterns');
 const ignores = require('./ignores');
-const automergeConfig = require('./automergeConfig');
 
-const enableAutoMerge = '--enable-auto-merge';
 const ignore = '--ignore';
 
 const args = arg({
-    [enableAutoMerge]: Boolean,
     [ignore]: [String]
 });
 
@@ -37,7 +34,7 @@ Object.keys(patterns).forEach(pattern => {
         const config = {
             ...patternConfig,
             directory: directory === '.' ? '/' : directory,
-            ...automergeConfig(args[enableAutoMerge]),
+            'open-pull-requests-limit': 10,
         };
 
         configs.push(config);
@@ -46,14 +43,14 @@ Object.keys(patterns).forEach(pattern => {
 
 const doc = new YAML.Document();
 doc.commentBefore = ' Generated with https://github.com/charleskorn/dependabot-config-generator';
-doc.contents = {version: 1, update_configs: configs};
+doc.contents = {version: 2, updates: configs};
 
-const directory = '.dependabot';
+const directory = '.github';
 
 if (!fs.existsSync(directory)){
     fs.mkdirSync(directory);
 }
 
-const filePath = path.join(directory, 'config.yml');
+const filePath = path.join(directory, 'dependabot.yml');
 
 fs.writeFileSync(filePath, doc.toString());
