@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const arg = require('arg');
+const cloneDeep = require('clone-deep');
 const fs = require('fs');
 const glob = require("glob");
 const path = require("path");
@@ -36,8 +37,8 @@ Object.keys(patterns).forEach(pattern => {
         const directory = path.dirname(match);
 
         const config = {
-            ...patternConfig,
-            ...labelsConfig,
+            ...cloneDeep(patternConfig),
+            ...cloneDeep(labelsConfig),
             directory: directory === '.' ? '/' : directory,
             'open-pull-requests-limit': 10,
         };
